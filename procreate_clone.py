@@ -1,5 +1,12 @@
 import streamlit as st
-from streamlit_drawable_canvas import st_canvas
+
+# Handle missing module gracefully
+try:
+    from streamlit_drawable_canvas import st_canvas
+except ModuleNotFoundError:
+    st.error("🚨 Missing module: `streamlit-drawable-canvas`. Please install it with `pip install streamlit-drawable-canvas` or add it to your `requirements.txt`.")
+    st.stop()
+
 from PIL import Image
 from io import BytesIO
 import base64
